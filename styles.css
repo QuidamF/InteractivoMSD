@@ -527,11 +527,12 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cyan-primary) !important;
-  background: rgba(0, 229, 255, 0.12) !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.3), rgba(0, 136, 255, 0.5)) !important;
   border: 2px solid var(--cyan-primary);
-  box-shadow: 0 0 16px rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.35);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .patient-avatar-lg {
@@ -541,30 +542,36 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cyan-primary) !important;
-  background: rgba(0, 229, 255, 0.12) !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.3), rgba(0, 136, 255, 0.5)) !important;
   border: 2px solid var(--cyan-primary);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.45);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .patient-avatar-svg {
-  width: 58%;
-  height: 58%;
-  stroke: var(--cyan-primary);
-  stroke-width: 2;
-  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  min-width: 26px;
+  min-height: 26px;
+  fill: #ffffff !important;
+  color: #ffffff !important;
   display: block;
+  flex-shrink: 0;
   transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 .patient-avatar-lg .patient-avatar-svg {
-  width: 60%;
-  height: 60%;
+  width: 40px;
+  height: 40px;
+  min-width: 36px;
+  min-height: 36px;
 }
 
 .case-list-item:hover .patient-avatar-svg {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 /* -------------------------------------------------------------

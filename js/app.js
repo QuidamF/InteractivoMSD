@@ -103,16 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper para renderizar icono SVG de Avatar de Paciente (Hombre / Mujer)
   function getAvatarSvg(genero) {
     if (genero === 'mujer' || genero === 'femenino') {
-      return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3a4 4 0 0 0-4 4c0 1.5.8 2.8 2 3.4A6.98 6.98 0 0 0 4 17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1 6.98 6.98 0 0 0-6-6.6A4 4 0 0 0 12 3z"></path>
-        <path d="M7.5 8c-1.3 1.5-1.8 3.5-1.5 5.5"></path>
-        <path d="M16.5 8c1.3 1.5 1.8 3.5 1.5 5.5"></path>
+      return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2a4.5 4.5 0 0 0-4.5 4.5c0 1.76 1.02 3.28 2.5 4.02C6.7 11.75 4 14.8 4 18.5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1c0-3.7-2.7-6.75-6-7.98 1.48-.74 2.5-2.26 2.5-4.02A4.5 4.5 0 0 0 12 2zm-3.5 10c-1.5 1.2-2.5 3-2.5 5h2c0-1.3.6-2.4 1.5-3.1L8.5 12zm7 0l-1.5 1.9c.9.7 1.5 1.8 1.5 3.1h2c0-2-1-3.8-2.5-5z"/>
       </svg>`;
     } else {
-      return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="7.5" r="3.5"></circle>
-        <path d="M9.2 5.5c.8-.7 2-1 2.8-1s2 .3 2.8 1"></path>
-        <path d="M4.5 19.5c0-3.3 3.4-6 7.5-6s7.5 2.7 7.5 6"></path>
+      return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 11c-4.42 0-8 2.24-8 5v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.76-3.58-5-8-5z"/>
       </svg>`;
     }
   }
