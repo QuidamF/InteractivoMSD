@@ -100,16 +100,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Helper para renderizar icono SVG de Avatar de Paciente (Hombre / Mujer)
-  function getAvatarSvg(genero) {
-    if (genero === 'mujer' || genero === 'femenino') {
-      return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2a4.5 4.5 0 0 0-4.5 4.5c0 1.76 1.02 3.28 2.5 4.02C6.7 11.75 4 14.8 4 18.5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1c0-3.7-2.7-6.75-6-7.98 1.48-.74 2.5-2.26 2.5-4.02A4.5 4.5 0 0 0 12 2zm-3.5 10c-1.5 1.2-2.5 3-2.5 5h2c0-1.3.6-2.4 1.5-3.1L8.5 12zm7 0l-1.5 1.9c.9.7 1.5 1.8 1.5 3.1h2c0-2-1-3.8-2.5-5z"/>
-      </svg>`;
-    } else {
-      return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 11c-4.42 0-8 2.24-8 5v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.76-3.58-5-8-5z"/>
-      </svg>`;
+  // Helper para renderizar icono SVG de Avatar de Paciente ÚNICO por Personaje
+  function getAvatarSvg(pacienteInfo) {
+    const avatarId = typeof pacienteInfo === 'object' ? pacienteInfo.avatarId : pacienteInfo;
+    
+    switch (avatarId) {
+      case 'camila': // 1. Camila M. (Mujer 22 años - Estudiante universitaria)
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C9.2 2 7 4.2 7 7c0 1.8 1 3.4 2.5 4.3C6.1 12.5 4 15.4 4 19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1c0-3.6-2.1-6.5-5.5-7.7C16 10.4 17 8.8 17 7c0-2.8-2.2-5-5-5zm-3.5 5c0-1.9 1.6-3.5 3.5-3.5s3.5 1.6 3.5 3.5c0 1.2-.6 2.2-1.5 2.8C13.2 10.3 12.6 11 12 11.5c-.6-.5-1.2-1.2-2-1.7-.9-.6-1.5-1.6-1.5-2.8z"/>
+          <path d="M6 7.5c-1.2 2-1.4 4.5-.6 7 .2.5.8.8 1.3.6.5-.2.8-.8.6-1.3-.6-1.9-.4-3.8.5-5.3.3-.5.1-1.1-.4-1.3-.5-.3-1.1-.1-1.4.3z"/>
+          <path d="M18 7.5c1.2 2 1.4 4.5.6 7-.2.5-.8.8-1.3.6-.5-.2-.8-.8-.6-1.3.6-1.9.4-3.8-.5-5.3-.3-.5-.1-1.1.4-1.3.5-.3 1.1-.1 1.4.3z"/>
+        </svg>`;
+
+      case 'elena': // 2. Elena R. (Mujer 50 años - Adulta elegante)
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2c-3.3 0-6 2.7-6 6 0 2.1 1.1 3.9 2.8 5C5.8 14.3 4 17 4 20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1c0-3-1.8-5.7-4.8-7 1.7-1.1 2.8-2.9 2.8-5 0-3.3-2.7-6-6-6zm-4 6c0-2.2 1.8-4 4-4s4 1.8 4 4c0 1.4-.7 2.6-1.8 3.3l-.7.4V13h-3v-1.3l-.7-.4C8.7 10.6 8 9.4 8 8z"/>
+          <path d="M6.5 6.5C5.5 8 5.5 10 6.5 11.5c.3.4.9.5 1.3.2.4-.3.5-.9.2-1.3-.6-1-.6-2.4 0-3.4.3-.4.2-1-.2-1.3-.4-.3-1-.2-1.3.3z"/>
+          <path d="M17.5 6.5c1 1.5 1 3.5 0 5-.3.4-.2 1 .2 1.3.4.3 1 .2 1.3-.2 1.4-1.8 1.4-4.2 0-6-.3-.4-.9-.5-1.3-.2-.4.3-.5.9-.2 1.3z"/>
+        </svg>`;
+
+      case 'patricia': // 3. Patricia V. (Mujer 42 años - Mamá con moño/recogido)
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="2.5" r="2.2"/>
+          <path d="M12 4.5C9.5 4.5 7.5 6.5 7.5 9c0 1.8 1 3.4 2.5 4.2-3.2 1.2-5.5 4.1-5.5 7.8 0 .6.4 1 1 1h13c.6 0 1-.4 1-1 0-3.7-2.3-6.6-5.5-7.8 1.5-.8 2.5-2.4 2.5-4.2 0-2.5-2-4.5-4.5-4.5zm-3 4.5c0-1.7 1.3-3 3-3s3 1.3 3 3c0 1.1-.6 2.1-1.5 2.6l-.5.3V13h-2v-1.1l-.5-.3C9.6 11.1 9 10.1 9 9z"/>
+        </svg>`;
+
+      case 'carlos': // 4. Carlos T. (Hombre 40 años - Ejecutivo con cuello de vestir)
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 1.8 1.1 3.4 2.7 4.1C6.7 11.9 4.5 14.8 4.5 18.5V20c0 .6.4 1 1 1h13c.6 0 1-.4 1-1v-1.5c0-3.7-2.2-6.6-5.7-7.9 1.6-.7 2.7-2.3 2.7-4.1C16.5 4 14.5 2 12 2zm-3 4.5c0-1.7 1.3-3 3-3s3 1.3 3 3c0 1.2-.7 2.2-1.7 2.7l-.3.2V11h-2V9.4l-.3-.2C9.7 8.7 9 7.7 9 6.5z"/>
+          <path d="M12 13.5l-2 4.5h4l-2-4.5z"/>
+        </svg>`;
+
+      case 'diego': // 5. Diego S. (Hombre 17 años - Adolescente / peinado juvenil desordenado)
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.7 2 6 4.7 6 8c0 2.2 1.2 4.1 3 5.1-3.5 1.3-6 4.4-6 8.4 0 .6.4 1 1 1h16c.6 0 1-.4 1-1 0-4-2.5-7.1-6-8.4 1.8-1 3-2.9 3-5.1 0-3.3-2.7-6-6-6zm0 2c2.2 0 4 1.8 4 4 0 1.3-.6 2.4-1.6 3.1l-.4.3V13h-4v-1.6l-.4-.3C8.6 10.4 8 9.3 8 8c0-2.2 1.8-4 4-4z"/>
+          <path d="M10 4.5c1-1 3.5-1 4.5.5.3.4.9.5 1.3.2.4-.3.5-.9.2-1.3C18.5 2.5 16 1.5 13.5 1.5c-2 0-4 1-5 2.5-.3.4-.2 1 .2 1.3.4.3 1 .2 1.3-.3z"/>
+        </svg>`;
+
+      case 'javier': // 6. Javier L. (Hombre 30 años - Profesional joven con sombra de barba)
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C9.5 2 7.5 4 7.5 6.5c0 1.7 1 3.2 2.5 4C6.5 11.7 4 14.7 4 18.5V20c0 .6.4 1 1 1h14c.6 0 1-.4 1-1v-1.5c0-3.8-2.5-6.8-6-8 1.5-.8 2.5-2.3 2.5-4C16.5 4 14.5 2 12 2zm-3 4.5c0-1.7 1.3-3 3-3s3 1.3 3 3c0 1.1-.6 2.1-1.5 2.6l-.5.3V12h-2V9.4l-.5-.3C9.6 8.6 9 7.6 9 6.5z"/>
+          <path d="M9.5 9.5c0 1.8 1.1 3 2.5 3s2.5-1.2 2.5-3h-5z"/>
+        </svg>`;
+
+      case 'fernando': // 7. Fernando G. (Hombre 25 años - Acompañante con cabello abundante/rizado)
+      default:
+        if (avatarId === 'mujer' || avatarId === 'femenino') {
+          return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2a4.5 4.5 0 0 0-4.5 4.5c0 1.76 1.02 3.28 2.5 4.02C6.7 11.75 4 14.8 4 18.5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1c0-3.7-2.7-6.75-6-7.98 1.48-.74 2.5-2.26 2.5-4.02A4.5 4.5 0 0 0 12 2zm-3.5 10c-1.5 1.2-2.5 3-2.5 5h2c0-1.3.6-2.4 1.5-3.1L8.5 12zm7 0l-1.5 1.9c.9.7 1.5 1.8 1.5 3.1h2c0-2-1-3.8-2.5-5z"/>
+          </svg>`;
+        }
+        return `<svg class="patient-avatar-svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1.8c-3.6 0-6.5 2.5-6.5 6.2 0 1.9 1 3.6 2.6 4.7-3.4 1.3-5.7 4.3-5.7 7.8 0 .6.4 1 1 1h17.2c.6 0 1-.4 1-1 0-3.5-2.3-6.5-5.7-7.8 1.6-1.1 2.6-2.8 2.6-4.7 0-3.7-2.9-6.2-6.5-6.2zm-3.5 6.2c0-2 1.6-3.7 3.5-3.7s3.5 1.7 3.5 3.7c0 1.2-.6 2.3-1.6 3l-.4.3V13h-3v-1.7l-.4-.3c-1-.7-1.6-1.8-1.6-3z"/>
+          <path d="M8.5 4C9.5 2.8 11 2 12.5 2c1.2 0 2.5.6 3.3 1.5.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4C16 1 14.3.2 12.5.2 10.5.2 8.7 1.2 7.3 2.7c-.4.4-.3 1 .1 1.4.4.3 1 .3 1.1-.1z"/>
+        </svg>`;
     }
   }
 
@@ -127,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
       listItem.innerHTML = `
         <div class="case-item-left">
           <div class="patient-avatar-sm" style="background: ${caso.paciente.avatarBg};">
-            ${getAvatarSvg(caso.paciente.genero)}
+            ${getAvatarSvg(caso.paciente.avatarId || caso.paciente)}
           </div>
           <div class="case-item-content">
             <span class="case-number">${caso.numero}</span>
@@ -181,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('patient-name').textContent = caso.paciente.nombre;
     document.getElementById('patient-details').textContent = `${caso.paciente.edad} • ${caso.paciente.perfil}`;
     const avatarElem = document.getElementById('patient-avatar-lg');
-    avatarElem.innerHTML = getAvatarSvg(caso.paciente.genero);
+    avatarElem.innerHTML = getAvatarSvg(caso.paciente.avatarId || caso.paciente);
     avatarElem.style.background = caso.paciente.avatarBg;
 
     document.getElementById('objection-quote').textContent = objecion.cita;

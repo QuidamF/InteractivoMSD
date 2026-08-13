@@ -14,8 +14,9 @@ const CASOS_DATA = [
       nombre: "Camila M.",
       edad: "22 años",
       genero: "mujer",
+      avatarId: "camila",
       perfil: "Estudiante universitaria. Busca activamente temas de salud en TikTok, Instagram y ChatGPT, pero se siente confundida y con dudas sobre la vacuna del VPH.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(0, 229, 255, 0.45), rgba(0, 136, 255, 0.65))"
     },
     objeciones: [
       {
@@ -111,8 +112,9 @@ const CASOS_DATA = [
       nombre: "Elena R.",
       edad: "50 años",
       genero: "mujer",
+      avatarId: "elena",
       perfil: "Casada desde hace 22 años en relación monógama. Considera que a su edad y estilo de vida la prevención de VPH carece de relevancia.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(224, 64, 251, 0.45), rgba(124, 77, 255, 0.65))"
     },
     objeciones: [
       {
@@ -208,8 +210,9 @@ const CASOS_DATA = [
       nombre: "Patricia V.",
       edad: "42 años (Mamá de Mateo, 11 años)",
       genero: "mujer",
+      avatarId: "patricia",
       perfil: "Madre comprometida con la salud de su hijo. Le preocupa que aplicar una vacuna ligada a una infección de transmisión sexual envíe un mensaje equivocado.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(0, 230, 118, 0.45), rgba(0, 176, 255, 0.65))"
     },
     objeciones: [
       {
@@ -306,8 +309,9 @@ const CASOS_DATA = [
       nombre: "Carlos T.",
       edad: "40 años",
       genero: "hombre",
+      avatarId: "carlos",
       perfil: "Ejecutivo. Asocia el VPH de forma exclusiva con el cáncer de cuello uterino y desconoce las repercusiones en la salud masculina.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(255, 179, 0, 0.45), rgba(255, 109, 0, 0.65))"
     },
     objeciones: [
       {
@@ -403,8 +407,9 @@ const CASOS_DATA = [
       nombre: "Diego S.",
       edad: "17 años",
       genero: "hombre",
+      avatarId: "diego",
       perfil: "Adolescente informado en redes sociales. Le interesa proteger su salud, pero se muestra escéptico y desconfiado ante la figura del médico.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(255, 64, 129, 0.45), rgba(255, 110, 64, 0.65))"
     },
     objeciones: [
       {
@@ -500,8 +505,9 @@ const CASOS_DATA = [
       nombre: "Javier L.",
       edad: "30 años",
       genero: "hombre",
+      avatarId: "javier",
       perfil: "Profesional joven. Conoce la existencia del VPH y reconoce la utilidad de vacunarse, pero siempre prioriza sus pendientes laborales y pospone su salud.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(124, 77, 255, 0.45), rgba(0, 229, 255, 0.65))"
     },
     objeciones: [
       {
@@ -595,8 +601,9 @@ const CASOS_DATA = [
       nombre: "Fernando G.",
       edad: "25 años",
       genero: "hombre",
+      avatarId: "fernando",
       perfil: "Acompañante masculino. Escucha hablar de VPH por primera vez y muestra curiosidad pero desconoce el tema.",
-      avatarBg: "linear-gradient(135deg, var(--cyan-primary), var(--cyan-dark))"
+      avatarBg: "linear-gradient(135deg, rgba(0, 176, 255, 0.45), rgba(0, 230, 118, 0.65))"
     },
     objeciones: [
       {
