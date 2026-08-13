@@ -157,6 +157,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Helper para renderizar el Avatar Memoji 3D o SVG del Paciente
+  function getAvatarHtml(pacienteInfo) {
+    let paciente = pacienteInfo;
+    if (typeof pacienteInfo === 'string') {
+      const casoEncontrado = CASOS_DATA.find(c => c.paciente.avatarId === pacienteInfo || c.paciente.genero === pacienteInfo);
+      if (casoEncontrado) paciente = casoEncontrado.paciente;
+    }
+    
+    if (paciente && paciente.avatarImg) {
+      return `<img src="${paciente.avatarImg}" alt="${paciente.nombre || 'Paciente'}" class="patient-avatar-img" />`;
+    }
+
+    return getAvatarSvg(pacienteInfo);
+  }
+
   // -------------------------------------------------------------
   // 1. VENTANA 1: MENÚ DE CASOS (Lista de Selección)
   // -------------------------------------------------------------
@@ -171,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       listItem.innerHTML = `
         <div class="case-item-left">
           <div class="patient-avatar-sm" style="background: ${caso.paciente.avatarBg};">
-            ${getAvatarSvg(caso.paciente.avatarId || caso.paciente)}
+            ${getAvatarHtml(caso.paciente)}
           </div>
           <div class="case-item-content">
             <span class="case-number">${caso.numero}</span>
@@ -225,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('patient-name').textContent = caso.paciente.nombre;
     document.getElementById('patient-details').textContent = `${caso.paciente.edad} • ${caso.paciente.perfil}`;
     const avatarElem = document.getElementById('patient-avatar-lg');
-    avatarElem.innerHTML = getAvatarSvg(caso.paciente.avatarId || caso.paciente);
+    avatarElem.innerHTML = getAvatarHtml(caso.paciente);
     avatarElem.style.background = caso.paciente.avatarBg;
 
     document.getElementById('objection-quote').textContent = objecion.cita;
