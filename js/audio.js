@@ -7,6 +7,7 @@ class SoundEngine {
   constructor() {
     this.audioCtx = null;
     this.isMuted = false;
+    this.currentAudio = null;
   }
 
   initContext() {
@@ -23,7 +24,83 @@ class SoundEngine {
 
   toggleMute() {
     this.isMuted = !this.isMuted;
+    if (this.isMuted) {
+      this.stopObjectionVoice();
+    }
     return this.isMuted;
+  }
+
+  playObjectionVoice(caso, objecion, onStart, onEnd) {
+    if (this.isMuted) return;
+    this.stopObjectionVoice();
+
+    const audioPath = `assets/audio/cases/${objecion.id}.mp3`;
+    this.currentAudio = new Audio(audioPath);
+
+    this.currentAudio.onplay = () => {
+      if (onStart) onStart();
+    };
+
+    this.currentAudio.onended = () => {
+      this.currentAudio = null;
+      if (onEnd) onEnd();
+    };
+
+    this.currentAudio.onerror = () => {
+      this.playObjectionSpeechSynthesis(caso, objecion, onStart, onEnd);
+    };
+
+    this.currentAudio.play().catch(() => {
+      this.playObjectionSpeechSynthesis(caso, objecion, onStart, onEnd);
+    });
+  }
+
+  stopObjectionVoice() {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio = null;
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
+  playObjectionSpeechSynthesis(caso, objecion, onStart, onEnd) {
+    if (!('speechSynthesis' in window)) return;
+    
+    if (onStart) onStart();
+
+    const introText = `${caso.numero}: ${caso.paciente.nombre}, ${caso.paciente.edad}.`;
+    const quoteText = objecion.cita;
+
+    const utterIntro = new SpeechSynthesisUtterance(introText);
+    utterIntro.lang = 'es-MX';
+    utterIntro.rate = 1.0;
+
+    const utterQuote = new SpeechSynthesisUtterance(quoteText);
+    utterQuote.lang = 'es-MX';
+
+    if (caso.paciente.genero === 'mujer') {
+      utterQuote.pitch = 1.25;
+      utterQuote.rate = 1.0;
+    } else {
+      utterQuote.pitch = 0.85;
+      utterQuote.rate = 0.95;
+    }
+
+    utterIntro.onend = () => {
+      window.speechSynthesis.speak(utterQuote);
+    };
+
+    utterQuote.onend = () => {
+      if (onEnd) onEnd();
+    };
+
+    utterQuote.onerror = () => {
+      if (onEnd) onEnd();
+    };
+
+    window.speechSynthesis.speak(utterIntro);
   }
 
   playClick() {

@@ -113,7 +113,17 @@
 
         <!-- Globo de Objeción -->
         <div class="objection-speech-bubble glass-card">
-          <span class="speech-label">💬 Objeción planteada por el paciente:</span>
+          <div class="speech-header-row">
+            <span class="speech-label">💬 Objeción planteada por el paciente:</span>
+            <button id="btn-play-audio" class="btn-play-audio" title="Reproducir narración de voz">
+              <svg class="audio-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+              <span id="btn-play-audio-label">Escuchar Voz</span>
+            </button>
+          </div>
           <blockquote id="objection-quote" class="objection-quote">“Cita de la objeción”</blockquote>
           <p id="objection-context" class="objection-context">Contexto de la situación en consulta.</p>
         </div>
