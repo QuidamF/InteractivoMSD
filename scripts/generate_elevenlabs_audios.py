@@ -28,10 +28,10 @@ VOICE_MAP = {
     "camila": "cgSgspJ2msm6clMCkdW9",   # Jessica / Mujer joven (Caso 01: 22 años)
     "elena": "21m00Tcm4TlvDq8ikWAM",    # Rachel / Mujer madura (Caso 02: 50 años)
     "patricia": "EXAVITQu4vr4xnSDxMaL", # Bella / Mujer materna (Caso 03: 42 años)
-    "carlos": "VR6AewLTigWG4xTkhBnG",   # Arnold / Hombre ejecutivo (Caso 04: 40 años)
+    "carlos": "pNInz6obpgDQGcFmaJgB",   # Adam / Hombre ejecutivo (Caso 04: 40 años)
     "diego": "IKne3meq5aSn9XLyUdCD",    # Charlie / Hombre joven (Caso 05: 17 años)
     "javier": "ErXwobaYiN019PkySvjV",   # Antoni / Hombre profesional 30s (Caso 06)
-    "fernando": "N2l1vC51M03qxH2Z5AOm"  # Josh / Hombre casual (Caso 07: 25 años)
+    "fernando": "TxGEqnHWrfWFTfGW9XjX"  # Josh / Hombre casual (Caso 07: 25 años)
 }
 
 # Base de datos de las 21 objeciones clínicas (7 Casos x 3 Objeciones)
