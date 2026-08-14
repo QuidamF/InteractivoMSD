@@ -7,15 +7,13 @@ APP_URL="file://$APP_DIR/index.html"
 
 echo "Starting InteractivoMSD kiosk..."
 
-# Cerrar Firefox anterior
-pkill -f "firefox.*InteractivoMSD" 2>/dev/null
+# Configurar touchscreen para la pantalla vertical
+xinput map-to-output 10 HDMI-A-0
 
 sleep 1
 
-# Abrir Firefox
-firefox \
+# Iniciar Firefox
+exec firefox \
     --new-instance \
     --kiosk \
-    "$APP_URL" &
-
-echo "Kiosk started."
+    "$APP_URL"
