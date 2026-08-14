@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Selección de Respuesta
   function handleOptionSelect(opt, objecion) {
-    if (document.querySelector('.option-card.disabled-locked')) return;
+    window.soundEngine.stopObjectionVoice();
     window.soundEngine.playClick();
 
     state.currentCaseAnswers[state.currentObjectionIndex] = {
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     newNextBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (newNextBtn.classList.contains('disabled-locked')) return;
+      window.soundEngine.stopObjectionVoice();
       window.soundEngine.playClick();
       if (isLastObjection) {
         finishCase();
@@ -519,6 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Concluir un Caso
   function finishCase() {
+    window.soundEngine.stopObjectionVoice();
     window.soundEngine.playFanfare();
     showView('summary');
     renderCaseSummary();
