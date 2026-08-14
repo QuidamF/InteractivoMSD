@@ -263,34 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('objection-quote').textContent = objecion.cita;
     document.getElementById('objection-context').textContent = objecion.contexto;
 
-    // Configuración del Botón de Audio para la Objeción del Paciente
-    const audioBtn = document.getElementById('btn-play-audio');
-    if (audioBtn) {
-      window.soundEngine.stopObjectionVoice();
-      audioBtn.classList.remove('playing');
-      const labelElem = document.getElementById('btn-play-audio-label');
-      if (labelElem) labelElem.textContent = 'Escuchar Voz';
-
-      const newAudioBtn = audioBtn.cloneNode(true);
-      audioBtn.parentNode.replaceChild(newAudioBtn, audioBtn);
-
-      newAudioBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-
-        if (newAudioBtn.classList.contains('playing')) {
-          window.soundEngine.stopObjectionVoice();
-          newAudioBtn.classList.remove('playing');
-          const lbl = document.getElementById('btn-play-audio-label');
-          if (lbl) lbl.textContent = 'Escuchar Voz';
-        } else {
-          window.soundEngine.playObjectionVoice(
-            caso,
-            objecion,
-            () => {
-              newAudioBtn.classList.add('playing');
-              const lbl = document.getElementById('btn-play-audio-label');
-              if (lbl) lbl.textContent = 'Reproduciendo...';
-            },
     // Render Opciones A, B, C
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
