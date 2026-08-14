@@ -376,6 +376,45 @@ document.addEventListener('DOMContentLoaded', () => {
       recommendationText.textContent = opt.mejoresOpciones || 'Recuerda validar las emociones del paciente y orientarlo con base científica.';
     }
 
+    // Configuración de Botón de Audio para la Explicación de Retroalimentación
+    const feedbackAudioBtn = document.getElementById('btn-play-feedback-audio');
+    if (feedbackAudioBtn) {
+      window.soundEngine.stopObjectionVoice();
+      feedbackAudioBtn.classList.remove('playing');
+      const labelElem = document.getElementById('btn-play-feedback-label');
+      if (labelElem) labelElem.textContent = 'Escuchar Explicación';
+
+      const newFeedbackAudioBtn = feedbackAudioBtn.cloneNode(true);
+      feedbackAudioBtn.parentNode.replaceChild(newFeedbackAudioBtn, feedbackAudioBtn);
+
+      newFeedbackAudioBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (newFeedbackAudioBtn.classList.contains('playing')) {
+          window.soundEngine.stopObjectionVoice();
+          newFeedbackAudioBtn.classList.remove('playing');
+          const lbl = document.getElementById('btn-play-feedback-label');
+          if (lbl) lbl.textContent = 'Escuchar Explicación';
+        } else {
+          window.soundEngine.playFeedbackVoice(
+            opt,
+            objecion,
+            caso,
+            () => {
+              newFeedbackAudioBtn.classList.add('playing');
+              const lbl = document.getElementById('btn-play-feedback-label');
+              if (lbl) lbl.textContent = 'Reproduciendo...';
+            },
+            () => {
+              newFeedbackAudioBtn.classList.remove('playing');
+              const lbl = document.getElementById('btn-play-feedback-label');
+              if (lbl) lbl.textContent = 'Escuchar Explicación';
+            }
+          );
+        }
+      });
+    }
+
     nextBtn.textContent = isLastObjection ? 'Ver Resumen del Caso →' : 'Siguiente Objeción →';
 
     const newNextBtn = nextBtn.cloneNode(true);

@@ -55,6 +55,55 @@ class SoundEngine {
     });
   }
 
+  playFeedbackVoice(opt, objecion, caso, onStart, onEnd) {
+    if (this.isMuted) return;
+    this.stopObjectionVoice();
+
+    const audioPath = `assets/audio/feedback/${objecion.id}-${opt.letra}.mp3`;
+    this.currentAudio = new Audio(audioPath);
+
+    this.currentAudio.onplay = () => {
+      if (onStart) onStart();
+    };
+
+    this.currentAudio.onended = () => {
+      this.currentAudio = null;
+      if (onEnd) onEnd();
+    };
+
+    this.currentAudio.onerror = () => {
+      this.playFeedbackSpeechSynthesis(opt, objecion, caso, onStart, onEnd);
+    };
+
+    this.currentAudio.play().catch(() => {
+      this.playFeedbackSpeechSynthesis(opt, objecion, caso, onStart, onEnd);
+    });
+  }
+
+  playFeedbackSpeechSynthesis(opt, objecion, caso, onStart, onEnd) {
+    if (!('speechSynthesis' in window)) return;
+    if (onStart) onStart();
+
+    let feedbackText = opt.esOptima
+      ? `Respuesta adecuada. ${opt.explicacion}`
+      : `Respuesta no óptima. ${opt.explicacion}. ${opt.mejoresOpciones || ''}`;
+
+    const utterance = new SpeechSynthesisUtterance(feedbackText);
+    utterance.lang = 'es-MX';
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+
+    utterance.onend = () => {
+      if (onEnd) onEnd();
+    };
+
+    utterance.onerror = () => {
+      if (onEnd) onEnd();
+    };
+
+    window.speechSynthesis.speak(utterance);
+  }
+
   stopObjectionVoice() {
     if (this.currentAudio) {
       this.currentAudio.pause();
