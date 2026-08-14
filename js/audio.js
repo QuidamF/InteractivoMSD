@@ -84,9 +84,11 @@ class SoundEngine {
     if (!('speechSynthesis' in window)) return;
     if (onStart) onStart();
 
-    let feedbackText = opt.esOptima
-      ? `Respuesta adecuada. ${opt.explicacion}`
-      : `Respuesta no óptima. ${opt.explicacion}. ${opt.mejoresOpciones || ''}`;
+    const cleanExp = (opt.explicacion || '').replace(/^Respuesta (adecuada|no óptima)\.\s*/i, '').trim();
+    const prefix = opt.esOptima ? 'Respuesta adecuada. ' : 'Respuesta no óptima. ';
+    const feedbackText = opt.esOptima
+      ? `${prefix}${cleanExp}`
+      : `${prefix}${cleanExp}. ${opt.mejoresOpciones || ''}`;
 
     const utterance = new SpeechSynthesisUtterance(feedbackText);
     utterance.lang = 'es-MX';

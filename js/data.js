@@ -28,14 +28,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Entiendo que pueda sentirse abrumada. Mi rol es ayudarle a navegar esa información con base en evidencia médica. Por ejemplo, Gardasil® 9 está indicada para prevenir lesiones precancerosas, cánceres y verrugas genitales causados por 9 tipos de VPH.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Valida la preocupación de la paciente, ofrece contención y redirige hacia información médica confiable basada en la indicación oficial.",
+            "explicacion": "Valida la preocupación de la paciente, ofrece contención y redirige hacia información médica confiable basada en la indicación oficial.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Es normal encontrar información mixta. Podemos revisar juntos sus dudas y contrastarlas con datos de estudios clínicos. Gardasil® 9 ha demostrado una eficacia de hasta el 97.4% en la prevención de lesiones de alto grado causadas por los tipos de VPH 31, 33, 45, 52 y 58.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Valida la preocupación y fundamenta la consulta con datos de eficacia de estudios clínicos de GARDASIL®9.",
+            "explicacion": "Valida la preocupación y fundamenta la consulta con datos de eficacia de estudios clínicos de GARDASIL®9.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -56,14 +56,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Es una duda válida. Según los estudios clínicos, las reacciones más comunes son locales y leves, como dolor, hinchazón o enrojecimiento en el sitio de la inyección (reportado en el 84.8% de los participantes) y dolor de cabeza (13.2%). Los efectos graves relacionados a la vacuna son muy raros.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Explica la seguridad de la vacuna con datos específicos de la IPP sobre las reacciones locales y generales más frecuentes.",
+            "explicacion": "Explica la seguridad de la vacuna con datos específicos de la IPP sobre las reacciones locales y generales más frecuentes.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Podemos revisar sus antecedentes. Es importante saber que Gardasil® 9 no contiene conservadores ni antibióticos, y los efectos adversos suelen ser de intensidad leve a moderada y transitorios.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Ofrece evaluación individualizada y aporta tranquilidad sobre los componentes y el carácter transitorio de los efectos secundarios.",
+            "explicacion": "Ofrece evaluación individualizada y aporta tranquilidad sobre los componentes y el carácter transitorio de los efectos secundarios.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -84,14 +84,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Las herramientas de IA son útiles, pero no reemplazan una valoración médica personalizada. La decisión de vacunar se basa en sus antecedentes, su edad y los beneficios potenciales, como la prevención de cerca del 90% de los casos de cáncer cervicouterino.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Reconoce la iniciativa de la paciente y posiciona al médico como guía confiable con base clínica e impacto preventivo.",
+            "explicacion": "Reconoce la iniciativa de la paciente y posiciona al médico como guía confiable con base clínica e impacto preventivo.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Interesante, ¿qué leyó? Podemos usarlo para aclarar puntos. Por ejemplo, la vacuna protege contra 9 tipos de VPH (6, 11, 16, 18, 31, 33, 45, 52 y 58), que son responsables de la mayoría de las enfermedades relacionadas con el VPH.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Utiliza la inquietud de la paciente para educar sobre la amplia cobertura de 9 tipos de VPH de Gardasil® 9.",
+            "explicacion": "Utiliza la inquietud de la paciente para educar sobre la amplia cobertura de 9 tipos de VPH de Gardasil® 9.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -129,14 +129,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Entiendo su punto. En adultos, la decisión debe individualizarse según edad, antecedentes, exposición previa y posibles riesgos futuros. Aunque esté en una relación monógama, el VPH puede permanecer latente de exposiciones previas. La vacuna previene infecciones futuras por los tipos que incluye, pero no trata las ya existentes.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Abre una decisión compartida e individualizada explicando la latencia viral y el carácter preventivo de la vacuna.",
+            "explicacion": "Abre una decisión compartida e individualizada explicando la latencia viral y el carácter preventivo de la vacuna.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“En personas adultas, la vacunación contra VPH no es una recomendación rutinaria para todos; puede evaluarse mediante una conversación médico-paciente, especialmente entre los 27 y 45 años.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Encuadra la toma de decisiones compartida e individualizada en adultos de acuerdo con la IPP.",
+            "explicacion": "Encuadra la toma de decisiones compartida e individualizada en adultos de acuerdo con la IPP.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -157,14 +157,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“La eficacia de Gardasil® 9 se ha demostrado en mujeres de 24 a 45 años. Aunque la respuesta inmune puede ser menor que en adolescentes, sigue siendo robusta.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Presenta la evidencia clínica de eficacia en mujeres adultas y la respuesta inmune comprobada.",
+            "explicacion": "Presenta la evidencia clínica de eficacia en mujeres adultas y la respuesta inmune comprobada.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“La decisión depende de una conversación médico-paciente. Los estudios clínicos respaldan la eficacia en este grupo de edad (ej. eficacia del 88.7% contra enfermedad por VPH 6, 11, 16, 18), por lo que vale la pena evaluarlo.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Cita datos de eficacia clínica en mujeres adultas para sustentar la evaluación individualizada.",
+            "explicacion": "Cita datos de eficacia clínica en mujeres adultas para sustentar la evaluación individualizada.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -185,14 +185,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Es una buena noticia. Aun así, el tamizaje y la vacunación tienen objetivos diferentes: el tamizaje detecta cambios, mientras la vacunación busca prevenir infecciones futuras por ciertos tipos de VPH.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Diferencia claramente el objetivo de detección del tamizaje frente a la protección preventiva de la vacunación.",
+            "explicacion": "Diferencia claramente el objetivo de detección del tamizaje frente a la protección preventiva de la vacunación.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Que sus estudios hayan salido bien no elimina la importancia de continuar con seguimiento ginecológico según indicación médica.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Refuerza la importancia de la continuidad del cuidado ginecológico y el tamizaje regular.",
+            "explicacion": "Refuerza la importancia de la continuidad del cuidado ginecológico y el tamizaje regular.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -230,14 +230,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Entiendo perfectamente su preocupación. El objetivo de la vacuna no es hablar sobre la vida sexual, sino de prevención a futuro. Es una medida de salud para proteger a su hijo/a contra cánceres y enfermedades que podría enfrentar en su vida adulta.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Valida el sentir de la madre y separa con empatía la inmunización médica del ámbito de conducta sexual.",
+            "explicacion": "Valida el sentir de la madre y separa con empatía la inmunización médica del ámbito de conducta sexual.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Vacunar es una decisión médica que no interfiere con los valores que usted le enseña en casa. Es una herramienta de prevención, similar a ponerle la vacuna del tétanos por si algún día se corta, no porque queramos que se corte.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Utiliza una analogía clara para reforzar que la prevención médica respeta la educación y valores del hogar.",
+            "explicacion": "Utiliza una analogía clara para reforzar que la prevención médica respeta la educación y valores del hogar.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -258,14 +258,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Precisamente por eso es el mejor momento. La IPP indica que la vacuna se puede administrar desde los 9 años porque buscamos generar protección muchos años antes de una posible exposición al virus. Así, su sistema inmune ya estará preparado.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Explica la indicación oficial desde los 9 años de edad para anticipar la protección antes de cualquier exposición.",
+            "explicacion": "Explica la indicación oficial desde los 9 años de edad para anticipar la protección antes de cualquier exposición.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“El objetivo es protegerlo antes. Los estudios muestran que la respuesta inmune a la vacuna es mucho más fuerte en preadolescentes y adolescentes (9-15 años) que en adultos jóvenes, por lo que estamos en la ventana ideal para lograr la mejor protección posible para él.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Fundamenta la ventaja biológica de la mayor inmunogenicidad en el grupo de 9 a 15 años.",
+            "explicacion": "Fundamenta la ventaja biológica de la mayor inmunogenicidad en el grupo de 9 a 15 años.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -286,14 +286,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Es una pregunta importante. Las vacunas contra VPH han sido evaluadas en estudios clínicos y monitoreadas por sistemas de seguridad durante años.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Brinda tranquilidad mediante datos de farmacovigilancia y estudios clínicos en población pediátrica y adolescente.",
+            "explicacion": "Brinda tranquilidad mediante datos de farmacovigilancia y estudios clínicos en población pediátrica y adolescente.",
             "fuente": "cdc.gov / IPP"
           },
           {
             "letra": "B",
             "texto": "“Podemos revisar efectos esperados, antecedentes de alergias y cualquier condición médica antes de decidir.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Propone una evaluación médica personalizada previa para resolver cualquier inquietud particular de seguridad.",
+            "explicacion": "Propone una evaluación médica personalizada previa para resolver cualquier inquietud particular de seguridad.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -331,14 +331,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Es una idea común, pero el VPH también puede afectar a hombres. Algunos tipos se asocian con cáncer anal y orofaríngeo, además de verrugas genitales.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Informa de forma directa sobre la carga de enfermedad masculina (cáncer orofaríngeo, anal y verrugas genitales).",
+            "explicacion": "Informa de forma directa sobre la carga de enfermedad masculina (cáncer orofaríngeo, anal y verrugas genitales).",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“La infección por VPH es muy común en ambos sexos. En hombres, los tipos 16 y 18 se asocian a cánceres orofaríngeos, y los tipos 6 y 11 causan el 90% de las verrugas genitales. La vacunación es una barrera de protección directa para usted.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Detalla los genotipos de VPH implicados en enfermedades masculinas y el beneficio de protección directa.",
+            "explicacion": "Detalla los genotipos de VPH implicados en enfermedades masculinas y el beneficio de protección directa.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -359,14 +359,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Muchas infecciones por VPH pueden no causar síntomas visibles. Por eso, no tener síntomas no siempre descarta exposición al virus.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Aclara que la portación de VPH suele ser silente o asintomática en los varones.",
+            "explicacion": "Aclara que la portación de VPH suele ser silente o asintomática en los varones.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Es importante diferenciar ausencia de síntomas de ausencia de riesgo. Podemos revisar si por edad y antecedentes vale la pena considerar vacunación.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Establece la diferencia entre asintomático y ausencia de riesgo, orientando la decisión compartida.",
+            "explicacion": "Establece la diferencia entre asintomático y ausencia de riesgo, orientando la decisión compartida.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -387,14 +387,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“La recomendación es similar a la de las mujeres. La vacunación rutinaria es hasta los 26 años, pero la eficacia en hombres de 27 a 45 años se infiere de los sólidos datos en mujeres de la misma edad y de la respuesta inmune comparable, por lo que es una decisión que podemos tomar juntos.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Explica la fundamentación clínica de inmunogenicidad y decisión compartida en varones de 27 a 45 años.",
+            "explicacion": "Explica la fundamentación clínica de inmunogenicidad y decisión compartida en varones de 27 a 45 años.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Podemos revisar sus antecedentes. Si no ha sido vacunado, Gardasil® 9 puede ofrecerle protección contra los 9 tipos de VPH. Los estudios muestran una respuesta inmune robusta y persistente en hombres adultos.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Resalta la respuesta inmune persistente documentada en varones adultos sin vacunación previa.",
+            "explicacion": "Resalta la respuesta inmune persistente documentada en varones adultos sin vacunación previa.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -432,14 +432,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Haces bien en querer estar seguro. La seguridad de Gardasil® 9 se ha monitoreado por más de una década en miles de personas. La información de la IPP, basada en estudios clínicos, muestra que la mayoría de las reacciones son leves, como dolor en el brazo.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Valida el sentido crítico del joven e informa sobre el monitoreo de farmacovigilancia por más de 10 años.",
+            "explicacion": "Valida el sentido crítico del joven e informa sobre el monitoreo de farmacovigilancia por más de 10 años.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Podemos revisar juntos eso que viste y lo comparamos con la información científica oficial. Así puedes ver los datos por ti mismo y evaluar la fuente de lo que leíste. Mi objetivo es que tomes una decisión con la que te sientas tranquilo y bien informado.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Construye un puente de diálogo transparente guiándolo a analizar evidencia oficial sin autoritarismo.",
+            "explicacion": "Construye un puente de diálogo transparente guiándolo a analizar evidencia oficial sin autoritarismo.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -460,14 +460,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Es válido que quieras estar seguro. La seguridad de las vacunas contra VPH ha sido monitoreada durante años, y los efectos más comunes suelen ser locales o transitorios.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Acoge la duda sin confrontar y aclara la transitoriedad de los efectos esperados.",
+            "explicacion": "Acoge la duda sin confrontar y aclara la transitoriedad de los efectos esperados.",
             "fuente": "cdc.gov / IPP"
           },
           {
             "letra": "B",
             "texto": "“Podemos revisar qué viste en redes y compararlo con información de fuentes médicas confiables.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Propone un ejercicio de pensamiento crítico evaluando las fuentes médicas confiables.",
+            "explicacion": "Propone un ejercicio de pensamiento crítico evaluando las fuentes médicas confiables.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -488,14 +488,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Puedes decirlo de forma directa: ‘Quiero saber si la vacuna contra VPH es adecuada para mí y qué esquema me corresponde’.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Le brinda un guión asertivo y directo para desenvolverse en la consulta médica.",
+            "explicacion": "Le brinda un guión asertivo y directo para desenvolverse en la consulta médica.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“A los 17 años, preguntar por prevención es responsable. Podemos resolver tus dudas y revisar el esquema que corresponde por edad.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Refuerza positivamente la iniciativa preventiva y orienta sobre el esquema de dosificación según la edad.",
+            "explicacion": "Refuerza positivamente la iniciativa preventiva y orienta sobre el esquema de dosificación según la edad.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -533,14 +533,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Entiendo. El primer paso no tiene que ser vacunarse hoy mismo. Lo que podemos hacer ahora es confirmar si eres un buen candidato, qué esquema de 3 dosis te aplicaría y resolver cualquier duda pendiente. Así ya tienes la información clara para cuando decidas actuar.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Reduce la fricción proponiendo resolver la evaluación del esquema de 3 dosis de forma inmediata sin presionar.",
+            "explicacion": "Reduce la fricción proponiendo resolver la evaluación del esquema de 3 dosis de forma inmediata sin presionar.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“La prevención a veces se siente así, como algo que puede esperar. Para que no se quede en el aire, ¿qué te parece si lo dejamos como una meta y agendamos una cita de valoración en las próximas semanas? Así le damos un espacio formal.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Ayuda a concretar la intención en una cita formal de valoración médica.",
+            "explicacion": "Ayuda a concretar la intención en una cita formal de valoración médica.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -561,14 +561,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“La prevención suele sentirse menos urgente porque no hay síntomas. Pero la vacunación busca prevenir infecciones futuras por tipos de VPH incluidos en la vacuna.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Explica por qué la vacunación preventiva debe considerarse antes de que ocurran exposiciones futuras.",
+            "explicacion": "Explica por qué la vacunación preventiva debe considerarse antes de que ocurran exposiciones futuras.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“En adultos de su edad, vale la pena conversar si hay beneficio potencial según antecedentes y riesgo futuro.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Enmarca el análisis del beneficio potencial según el perfil de salud del adulto.",
+            "explicacion": "Enmarca el análisis del beneficio potencial según el perfil de salud del adulto.",
             "fuente": "cancer.gov / IPP"
           },
           {
@@ -589,14 +589,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Lo entiendo. Podemos resolver en pocos minutos si tiene sentido considerarla y qué preguntas llevaría a una próxima consulta.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Respeta el tiempo del paciente ofreciendo una síntesis clínica breve y efectiva.",
+            "explicacion": "Respeta el tiempo del paciente ofreciendo una síntesis clínica breve y efectiva.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Para hacerlo práctico, podemos definir hoy si requiere valoración, revisar edad y antecedentes, y programar el siguiente paso.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Optimiza el espacio de consulta para avanzar en la evaluación de sus antecedentes.",
+            "explicacion": "Optimiza el espacio de consulta para avanzar en la evaluación de sus antecedentes.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -634,14 +634,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“El VPH es una infección común que puede afectar a mujeres y hombres. Algunos tipos se asocian con verrugas genitales y ciertos tipos de cáncer.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Brinda una definición clara, neutral y libre de estigmas sobre el VPH en ambos sexos.",
+            "explicacion": "Brinda una definición clara, neutral y libre de estigmas sobre el VPH en ambos sexos.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Es normal no conocerlo si nunca se lo han explicado. Podemos empezar por lo básico: qué es, cómo se previene y cuándo considerar vacunación.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Acoge con empatía la duda del paciente e inicia un proceso educativo incluyente.",
+            "explicacion": "Acoge con empatía la duda del paciente e inicia un proceso educativo incluyente.",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -662,14 +662,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Muchas personas lo piensan porque suele hablarse del VPH en ginecología, pero también puede ser relevante para hombres.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Aclara la percepción común integrando la relevancia de la salud del varón.",
+            "explicacion": "Aclara la percepción común integrando la relevancia de la salud del varón.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“La prevención del VPH puede involucrar a ambos. Si usted no fue vacunado previamente, podemos revisar si por edad corresponde hablar de vacunación.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Promueve la corresponsabilidad en la pareja y revisa su criterio de edad (hasta los 26 años de rutina).",
+            "explicacion": "Promueve la corresponsabilidad en la pareja y revisa su criterio de edad (hasta los 26 años de rutina).",
             "fuente": "IPP GARDASIL®9"
           },
           {
@@ -690,14 +690,14 @@ const CASOS_DATA = [
             "letra": "A",
             "texto": "“Es una excelente pregunta. La respuesta depende de tu edad y de si te vacunaste previamente. La IPP recomienda la vacunación en hombres para prevenir diversas enfermedades, incluyendo verrugas genitales y algunos tipos de cáncer.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Explica que la vacunación en varones previene verrugas genitales y cánceres, evaluando edad y antecedentes.",
+            "explicacion": "Explica que la vacunación en varones previene verrugas genitales y cánceres, evaluando edad y antecedentes.",
             "fuente": "IPP GARDASIL®9"
           },
           {
             "letra": "B",
             "texto": "“Qué bueno que lo preguntas. La vacunación con Gardasil® 9 está recomendada de rutina hasta los 26 años. En hombres de 27 a 45, se evalúa en una conversación con el médico. Podemos revisar tu caso para ver si es una opción beneficiosa para ti.”",
             "esOptima": true,
-            "explicacion": "Respuesta adecuada. Precisa la recomendación de rutina hasta los 26 años (como el caso de Fernando de 25 años) e individualización en adultos.",
+            "explicacion": "Precisa la recomendación de rutina hasta los 26 años (como el caso de Fernando de 25 años) e individualización en adultos.",
             "fuente": "IPP GARDASIL®9"
           },
           {

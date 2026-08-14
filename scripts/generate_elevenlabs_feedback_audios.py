@@ -38,6 +38,7 @@ def load_feedback_specs_from_data():
         for obj in caso["objeciones"]:
             for opt in obj["opciones"]:
                 exp = opt.get("explicacion", "")
+                exp = re.sub(r"^Respuesta (adecuada|no óptima)\.\s*", "", exp, flags=re.IGNORECASE).strip()
                 mo = opt.get("mejoresOpciones", "")
                 letra = opt["letra"]
                 obj_id = obj["id"]
