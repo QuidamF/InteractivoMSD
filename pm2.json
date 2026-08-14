@@ -5,7 +5,10 @@
             "script": "./start_kiosk.sh",
             "interpreter": "bash",
             "autorestart": true,
-            "restart_delay": 3000
+            "restart_delay": 3000,
+            "env": {
+                "DISPLAY": ":0.0"
+            }
         }
     ]
 }
