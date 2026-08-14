@@ -3,7 +3,8 @@
 Script de Generación de Audios Narrados con ElevenLabs API
 para GARDA TOUR Interactivo (MSD).
 
-Este script genera los archivos MP3 para cada objeción clínica combinando:
+Este script lee directamente 'js/data.js' para asegurar sincronía total y genera
+los 21 archivos MP3 para cada objeción clínica combinando:
 1. Voz del Narrador (locución médica introductoria).
 2. Voz del Personaje Paciente (emulando género, edad y tono del caso).
 
@@ -15,6 +16,7 @@ Requisitos:
 import os
 import sys
 import json
+import re
 import argparse
 import urllib.request
 import urllib.error
@@ -34,148 +36,31 @@ VOICE_MAP = {
     "fernando": "TxGEqnHWrfWFTfGW9XjX"  # Josh / Hombre casual (Caso 07: 25 años)
 }
 
-# Base de datos de las 21 objeciones clínicas (7 Casos x 3 Objeciones)
-CASOS_AUDIO_SPECS = [
-    # Caso 01 - Camila M. (Mujer 22 años)
-    {
-        "id": "c1-o1",
-        "character_voice": "camila",
-        "intro": "Caso 01. Paciente Camila, 22 años. Objeción 1.",
-        "quote": "He leído demasiadas cosas y ya no sé qué creer."
-    },
-    {
-        "id": "c1-o2",
-        "character_voice": "camila",
-        "intro": "Caso 01. Paciente Camila, 22 años. Objeción 2.",
-        "quote": "Me preocupan los efectos secundarios."
-    },
-    {
-        "id": "c1-o3",
-        "character_voice": "camila",
-        "intro": "Caso 01. Paciente Camila, 22 años. Objeción 3.",
-        "quote": "ChatGPT me dijo otra cosa."
-    },
-
-    # Caso 02 - Elena R. (Mujer 50 años)
-    {
-        "id": "c2-o1",
-        "character_voice": "elena",
-        "intro": "Caso 02. Paciente Elena, 50 años. Objeción 1.",
-        "quote": "Estoy casada, no veo por qué vacunarme."
-    },
-    {
-        "id": "c2-o2",
-        "character_voice": "elena",
-        "intro": "Caso 02. Paciente Elena, 50 años. Objeción 2.",
-        "quote": "A mi edad ya no tiene sentido."
-    },
-    {
-        "id": "c2-o3",
-        "character_voice": "elena",
-        "intro": "Caso 02. Paciente Elena, 50 años. Objeción 3.",
-        "quote": "Nunca he tenido un Papanicolaou anormal."
-    },
-
-    # Caso 03 - Patricia V. (Mujer 42 años, Mamá)
-    {
-        "id": "c3-o1",
-        "character_voice": "patricia",
-        "intro": "Caso 03. Paciente Patricia, 42 años. Objeción 1.",
-        "quote": "No quiero que piense que tiene permiso de iniciar vida sexual."
-    },
-    {
-        "id": "c3-o2",
-        "character_voice": "patricia",
-        "intro": "Caso 03. Paciente Patricia, 42 años. Objeción 2.",
-        "quote": "Mi hijo todavía es muy joven."
-    },
-    {
-        "id": "c3-o3",
-        "character_voice": "patricia",
-        "intro": "Caso 03. Paciente Patricia, 42 años. Objeción 3.",
-        "quote": "Me preocupa la seguridad."
-    },
-
-    # Caso 04 - Carlos T. (Hombre 40 años)
-    {
-        "id": "c4-o1",
-        "character_voice": "carlos",
-        "intro": "Caso 04. Paciente Carlos, 40 años. Objeción 1.",
-        "quote": "Eso es un tema de mujeres."
-    },
-    {
-        "id": "c4-o2",
-        "character_voice": "carlos",
-        "intro": "Caso 04. Paciente Carlos, 40 años. Objeción 2.",
-        "quote": "Yo no tengo síntomas."
-    },
-    {
-        "id": "c4-o3",
-        "character_voice": "carlos",
-        "intro": "Caso 04. Paciente Carlos, 40 años. Objeción 3.",
-        "quote": "A los 40 ya no aplica."
-    },
-
-    # Caso 05 - Diego S. (Hombre 17 años)
-    {
-        "id": "c5-o1",
-        "character_voice": "diego",
-        "intro": "Caso 05. Paciente Diego, 17 años. Objeción 1.",
-        "quote": "No confío en los médicos."
-    },
-    {
-        "id": "c5-o2",
-        "character_voice": "diego",
-        "intro": "Caso 05. Paciente Diego, 17 años. Objeción 2.",
-        "quote": "Leí en redes que la vacuna puede ser peligrosa."
-    },
-    {
-        "id": "c5-o3",
-        "character_voice": "diego",
-        "intro": "Caso 05. Paciente Diego, 17 años. Objeción 3.",
-        "quote": "Quiero vacunarme, pero no sé cómo pedirlo."
-    },
-
-    # Caso 06 - Javier L. (Hombre 30 años)
-    {
-        "id": "c6-o1",
-        "character_voice": "javier",
-        "intro": "Caso 06. Paciente Javier, 30 años. Objeción 1.",
-        "quote": "Sí me interesa, pero luego lo veo."
-    },
-    {
-        "id": "c6-o2",
-        "character_voice": "javier",
-        "intro": "Caso 06. Paciente Javier, 30 años. Objeción 2.",
-        "quote": "No lo veo urgente."
-    },
-    {
-        "id": "c6-o3",
-        "character_voice": "javier",
-        "intro": "Caso 06. Paciente Javier, 30 años. Objeción 3.",
-        "quote": "No tengo tiempo."
-    },
-
-    # Caso 07 - Fernando G. (Hombre 25 años)
-    {
-        "id": "c7-o1",
-        "character_voice": "fernando",
-        "intro": "Caso 07. Paciente Fernando, 25 años. Objeción 1.",
-        "quote": "No sé nada del VPH."
-    },
-    {
-        "id": "c7-o2",
-        "character_voice": "fernando",
-        "intro": "Caso 07. Paciente Fernando, 25 años. Objeción 2.",
-        "quote": "Pensé que era un tema de mi novia."
-    },
-    {
-        "id": "c7-o3",
-        "character_voice": "fernando",
-        "intro": "Caso 07. Paciente Fernando, 25 años. Objeción 3.",
-        "quote": "¿Yo también debería vacunarme?"
-    }
-]
+def load_objection_specs_from_data():
+    data_path = os.path.join(os.path.dirname(__file__), "..", "js", "data.js")
+    with open(data_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    
+    match = re.search(r"const CASOS_DATA = (\[.*\]);", content, re.DOTALL)
+    if not match:
+        raise ValueError("No se pudo parsear CASOS_DATA desde js/data.js")
+    
+    casos = json.loads(match.group(1))
+    specs = []
+    
+    for caso in casos:
+        paciente = caso["paciente"]
+        avatar_id = paciente.get("avatarId", "narrator")
+        for idx_obj, obj in enumerate(caso["objeciones"], 1):
+            intro = f"{caso['numero']}. Paciente {paciente['nombre']}, {paciente['edad']}. Objeción {idx_obj}."
+            quote = obj["cita"]
+            specs.append({
+                "id": obj["id"],
+                "character_voice": avatar_id,
+                "intro": intro,
+                "quote": quote
+            })
+    return specs
 
 def synthesize_elevenlabs_audio(api_key, voice_id, text, output_path):
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
@@ -227,26 +112,26 @@ def main():
         print("   python3 scripts/generate_elevenlabs_audios.py --api-key TU_ELEVENLABS_API_KEY\n")
         sys.exit(1)
 
+    specs = load_objection_specs_from_data()
     output_dir = "assets/audio/cases"
     os.makedirs(output_dir, exist_ok=True)
 
-    print(f"\n🎙️  Iniciando generación de {len(CASOS_AUDIO_SPECS)} audios narrados con ElevenLabs...\n")
+    print(f"\n🎙️  Iniciando generación de {len(specs)} audios narrados desde js/data.js con ElevenLabs...\n")
 
     success_count = 0
-    for idx, spec in enumerate(CASOS_AUDIO_SPECS, 1):
+    for idx, spec in enumerate(specs, 1):
         objection_id = spec["id"]
         voice_key = spec["character_voice"]
         voice_id = VOICE_MAP.get(voice_key, VOICE_MAP["narrator"])
         
-        # Texto completo que simula primero al narrador y luego a la voz del paciente
         full_text = f"{spec['intro']}... \"{spec['quote']}\""
         output_file = os.path.join(output_dir, f"{objection_id}.mp3")
 
-        print(f"[{idx}/{len(CASOS_AUDIO_SPECS)}] Generando {objection_id} (Voz: {voice_key})...")
+        print(f"[{idx}/{len(specs)}] Generando {objection_id} (Voz: {voice_key})...")
         if synthesize_elevenlabs_audio(api_key, voice_id, full_text, output_file):
             success_count += 1
 
-    print(f"\n✨ ¡Finalizado! {success_count} de {len(CASOS_AUDIO_SPECS)} archivos de audio generados en '{output_dir}'.\n")
+    print(f"\n✨ ¡Finalizado! {success_count} de {len(specs)} archivos de audio generados en '{output_dir}'.\n")
 
 if __name__ == "__main__":
     main()
