@@ -1123,6 +1123,140 @@ body::after {
 }
 
 /* ==========================================================================
+   ADAPTACIÓN PARA TOTEM / PANTALLA VERTICAL FULL HD (1080 x 1920 px)
+   Distribución equilibrada del espacio vertical y tipografía de mayor tamaño
+   ========================================================================== */
+@media screen and (orientation: portrait), screen and (max-aspect-ratio: 1/1) {
+  .view {
+    padding: clamp(24px, 3.2vh, 60px) clamp(28px, 4vw, 64px);
+    gap: clamp(20px, 2.5vh, 48px);
+  }
+
+  /* Encabezados y Títulos */
+  .screensaver-title {
+    font-size: clamp(3.4rem, 5.5vh, 5.2rem);
+  }
+
+  .screensaver-subtitle {
+    font-size: clamp(1.35rem, 2.2vh, 1.85rem);
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 3.8vh, 3.2rem);
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.15rem, 1.8vh, 1.45rem);
+  }
+
+  /* Menú de Casos */
+  .cases-list {
+    gap: clamp(16px, 2.2vh, 32px);
+  }
+
+  .case-list-item {
+    padding: clamp(20px, 2.5vh, 36px) clamp(24px, 3vw, 40px);
+  }
+
+  .case-title-text {
+    font-size: clamp(1.35rem, 2.2vh, 1.8rem);
+  }
+
+  .case-subtitle-text {
+    font-size: clamp(1.05rem, 1.6vh, 1.35rem);
+  }
+
+  /* Objeción */
+  .objection-quote {
+    font-size: clamp(1.45rem, 2.6vh, 2.1rem);
+  }
+
+  .objection-context {
+    font-size: clamp(1.05rem, 1.6vh, 1.35rem);
+  }
+
+  .options-section-title {
+    font-size: clamp(1.3rem, 2.2vh, 1.7rem);
+  }
+
+  .option-card {
+    padding: clamp(20px, 2.5vh, 36px) clamp(24px, 3vw, 40px);
+  }
+
+  .option-text {
+    font-size: clamp(1.15rem, 1.8vh, 1.45rem);
+  }
+
+  /* Feedback */
+  .feedback-title {
+    font-size: clamp(1.8rem, 3vh, 2.6rem);
+  }
+
+  .feedback-text {
+    font-size: clamp(1.15rem, 1.8vh, 1.45rem);
+  }
+
+  .selected-option-summary {
+    font-size: clamp(1.1rem, 1.6vh, 1.35rem);
+  }
+
+  /* Resumen Final - Distribución Vertical Equilibrada */
+  .summary-container {
+    gap: clamp(18px, 2.2vh, 36px);
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .breakdown-list {
+    gap: clamp(12px, 1.5vh, 24px);
+    max-height: 42vh;
+    overflow-y: auto;
+    padding-right: 6px;
+  }
+
+  .breakdown-card {
+    padding: clamp(16px, 2vh, 28px);
+  }
+
+  .breakdown-quote {
+    font-size: clamp(1.15rem, 1.7vh, 1.45rem);
+  }
+
+  .breakdown-chosen {
+    font-size: clamp(1rem, 1.5vh, 1.25rem);
+  }
+
+  .breakdown-exp {
+    font-size: clamp(0.95rem, 1.4vh, 1.2rem);
+  }
+
+  .disclaimer-card {
+    padding: clamp(18px, 2.4vh, 32px);
+  }
+
+  .disclaimer-text {
+    font-size: clamp(0.95rem, 1.4vh, 1.2rem);
+    line-height: 1.55;
+  }
+
+  .disclaimer-cta {
+    font-size: clamp(1.1rem, 1.6vh, 1.38rem);
+  }
+
+  .summary-actions {
+    gap: clamp(10px, 1.5vh, 20px);
+    padding-top: 10px;
+    z-index: 10;
+  }
+
+  .summary-actions .btn {
+    padding: clamp(16px, 2.2vh, 26px) clamp(28px, 3.5vw, 44px);
+    font-size: clamp(1.15rem, 1.8vh, 1.45rem);
+    max-width: 560px;
+  }
+}
+
+/* ==========================================================================
    ADAPTACIÓN RESPONSIVA PARA DISPOSITIVOS MÓVILES (Smartphones)
    Habilita scroll táctil natural cuando la pantalla es pequeña (<768px ancho o <720px alto)
    ========================================================================== */

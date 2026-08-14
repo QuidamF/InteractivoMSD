@@ -560,42 +560,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextCaseBtn = document.getElementById('btn-next-case');
 
     if (retryBtn) {
-      const newRetryBtn = retryBtn.cloneNode(true);
-      retryBtn.parentNode.replaceChild(newRetryBtn, retryBtn);
-      newRetryBtn.addEventListener('click', (e) => {
+      retryBtn.onclick = (e) => {
         e.stopPropagation();
         window.soundEngine.playClick();
         startCase(state.currentCaseIndex);
-      });
+      };
     }
 
     if (backMenuBtn) {
-      const newBackMenuBtn = backMenuBtn.cloneNode(true);
-      backMenuBtn.parentNode.replaceChild(newBackMenuBtn, backMenuBtn);
-      newBackMenuBtn.addEventListener('click', (e) => {
+      backMenuBtn.onclick = (e) => {
         e.stopPropagation();
         window.soundEngine.playClick();
         resetState();
         showView('caseMenu');
         renderCaseMenu();
-      });
+      };
     }
 
     if (nextCaseBtn) {
-      const newNextCaseBtn = nextCaseBtn.cloneNode(true);
-      nextCaseBtn.parentNode.replaceChild(newNextCaseBtn, nextCaseBtn);
-
       if (state.currentCaseIndex < CASOS_DATA.length - 1) {
-        newNextCaseBtn.style.display = 'inline-flex';
-        newNextCaseBtn.addEventListener('click', (e) => {
+        nextCaseBtn.style.display = 'inline-flex';
+        nextCaseBtn.onclick = (e) => {
           e.stopPropagation();
           window.soundEngine.playClick();
           startCase(state.currentCaseIndex + 1);
-        });
+        };
       } else {
-        newNextCaseBtn.style.display = 'none';
+        nextCaseBtn.style.display = 'none';
       }
     }
   }
+
+  // Delegación Global de Eventos de Resumen (Garantiza 100% de respuesta al clic/tap)
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('#btn-retry-case, #btn-back-menu, #btn-next-case');
+    if (!btn) return;
+
+    e.stopPropagation();
+    if (window.soundEngine) window.soundEngine.playClick();
+
+    if (btn.id === 'btn-retry-case') {
+      startCase(state.currentCaseIndex);
+    } else if (btn.id === 'btn-back-menu') {
+      resetState();
+      showView('caseMenu');
+      renderCaseMenu();
+    } else if (btn.id === 'btn-next-case') {
+      if (state.currentCaseIndex < CASOS_DATA.length - 1) {
+        startCase(state.currentCaseIndex + 1);
+      } else {
+        resetState();
+        showView('caseMenu');
+        renderCaseMenu();
+      }
+    }
+  });
 
 });
