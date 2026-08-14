@@ -857,9 +857,9 @@ body::after {
    3. VENTANA 3: FEEDBACK INMEDIATO
    ------------------------------------------------------------- */
 .feedback-banner {
-  padding: clamp(20px, 2.8vh, 36px);
+  padding: clamp(14px, 2vh, 24px) clamp(18px, 2.5vw, 28px);
   border-radius: var(--radius-md);
-  margin-bottom: clamp(14px, 2vh, 28px);
+  margin-bottom: clamp(10px, 1.4vh, 16px);
   text-align: center;
   flex-shrink: 0;
 }
@@ -884,7 +884,7 @@ body::after {
   font-size: clamp(0.85rem, 1.2vh, 1.05rem);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .banner-success .feedback-type-badge {
@@ -899,29 +899,28 @@ body::after {
 
 .feedback-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 2.8vh, 2.2rem);
+  font-size: clamp(1.5rem, 2.4vh, 2.1rem);
   font-weight: 800;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .selected-option-summary {
   background: rgba(0, 0, 0, 0.4);
-  padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 24px);
+  padding: clamp(12px, 1.6vh, 18px) clamp(16px, 2vw, 24px);
   border-radius: var(--radius-sm);
   border-left: 4px solid var(--cyan-primary);
-  margin-bottom: clamp(14px, 2vh, 24px);
+  margin-bottom: clamp(10px, 1.4vh, 18px);
   font-size: clamp(0.95rem, 1.3vh, 1.1rem);
   color: var(--text-secondary);
   line-height: 1.45;
 }
 
 .feedback-body {
-  padding: clamp(20px, 2.8vh, 32px);
-  margin-bottom: clamp(16px, 2.2vh, 28px);
-  flex: 1;
+  padding: clamp(16px, 2.2vh, 28px);
+  margin-bottom: clamp(12px, 1.6vh, 20px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .feedback-section-title {
@@ -929,14 +928,14 @@ body::after {
   font-size: clamp(1.1rem, 1.5vh, 1.3rem);
   font-weight: 800;
   color: var(--cyan-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .feedback-text {
   font-size: clamp(1rem, 1.5vh, 1.2rem);
   line-height: 1.55;
   color: var(--text-primary);
-  margin-bottom: clamp(14px, 2vh, 24px);
+  margin-bottom: clamp(10px, 1.4vh, 18px);
 }
 
 .evidence-tag {
