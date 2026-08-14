@@ -1120,10 +1120,17 @@ body::after {
 }
 
 .summary-actions .btn {
-  flex: 1 1 220px;
-  max-width: 360px;
-  padding: clamp(12px, 1.6vh, 18px) clamp(20px, 2.5vw, 30px);
+  flex: 1 1 0px;
+  min-width: 200px;
+  max-width: 320px;
+  min-height: 52px;
+  padding: clamp(12px, 1.6vh, 18px) clamp(16px, 2vw, 24px);
   font-size: clamp(0.95rem, 1.3vh, 1.15rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
   cursor: pointer !important;
   pointer-events: auto !important;
 }
@@ -1256,9 +1263,13 @@ body::after {
   }
 
   .summary-actions .btn {
-    padding: clamp(16px, 2.2vh, 26px) clamp(28px, 3.5vw, 44px);
-    font-size: clamp(1.15rem, 1.8vh, 1.45rem);
-    max-width: 560px;
+    flex: none;
+    width: 100%;
+    max-width: 520px;
+    min-height: 56px;
+    padding: clamp(14px, 2vh, 22px) clamp(24px, 3vw, 36px);
+    font-size: clamp(1.1rem, 1.7vh, 1.35rem);
+    white-space: nowrap;
   }
 }
 
