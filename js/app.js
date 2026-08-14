@@ -555,36 +555,46 @@ document.addEventListener('DOMContentLoaded', () => {
       breakdownContainer.appendChild(item);
     });
 
-    document.getElementById('summary-disclaimer-text').textContent = DISCLAIMER_MSD.mensajeFinal;
-    document.getElementById('summary-cta-text').textContent = DISCLAIMER_MSD.cta;
-
     const retryBtn = document.getElementById('btn-retry-case');
     const backMenuBtn = document.getElementById('btn-back-menu');
     const nextCaseBtn = document.getElementById('btn-next-case');
 
-    retryBtn.onclick = (e) => {
-      e.stopPropagation();
-      window.soundEngine.playClick();
-      startCase(state.currentCaseIndex);
-    };
-
-    backMenuBtn.onclick = (e) => {
-      e.stopPropagation();
-      window.soundEngine.playClick();
-      resetState();
-      showView('caseMenu');
-      renderCaseMenu();
-    };
-
-    if (state.currentCaseIndex < CASOS_DATA.length - 1) {
-      nextCaseBtn.style.display = 'inline-flex';
-      nextCaseBtn.onclick = (e) => {
+    if (retryBtn) {
+      const newRetryBtn = retryBtn.cloneNode(true);
+      retryBtn.parentNode.replaceChild(newRetryBtn, retryBtn);
+      newRetryBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         window.soundEngine.playClick();
-        startCase(state.currentCaseIndex + 1);
-      };
-    } else {
-      nextCaseBtn.style.display = 'none';
+        startCase(state.currentCaseIndex);
+      });
+    }
+
+    if (backMenuBtn) {
+      const newBackMenuBtn = backMenuBtn.cloneNode(true);
+      backMenuBtn.parentNode.replaceChild(newBackMenuBtn, backMenuBtn);
+      newBackMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.soundEngine.playClick();
+        resetState();
+        showView('caseMenu');
+        renderCaseMenu();
+      });
+    }
+
+    if (nextCaseBtn) {
+      const newNextCaseBtn = nextCaseBtn.cloneNode(true);
+      nextCaseBtn.parentNode.replaceChild(newNextCaseBtn, nextCaseBtn);
+
+      if (state.currentCaseIndex < CASOS_DATA.length - 1) {
+        newNextCaseBtn.style.display = 'inline-flex';
+        newNextCaseBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          window.soundEngine.playClick();
+          startCase(state.currentCaseIndex + 1);
+        });
+      } else {
+        newNextCaseBtn.style.display = 'none';
+      }
     }
   }
 
