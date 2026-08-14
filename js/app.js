@@ -63,17 +63,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   );
 
+  function goToCaseMenu() {
+    if (window.soundEngine) window.soundEngine.playClick();
+    window.screensaverManager.isActive = false;
+    window.screensaverManager.startTimer();
+    resetState();
+    showView('caseMenu');
+    renderCaseMenu();
+  }
+
   // Inicializar SIEMPRE en la Pantalla de Inicio (Screensaver) al refrescar o cargar
   resetState();
   showView('screensaver');
 
   // Clic en cualquier parte de la pantalla de inicio o en el botón para entrar a la app
   if (views.screensaver) {
-    views.screensaver.addEventListener('click', () => {
-      if (window.screensaverManager.isActive) {
-        window.soundEngine.playClick();
-        window.screensaverManager.deactivate();
-      }
+    views.screensaver.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToCaseMenu();
+    });
+  }
+
+  const startInteractiveBtn = document.getElementById('btn-start-interactive');
+  if (startInteractiveBtn) {
+    startInteractiveBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToCaseMenu();
     });
   }
 
